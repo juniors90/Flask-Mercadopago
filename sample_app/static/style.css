@@ -1,0 +1,160 @@
+* {
+  font-family: calibri, helvetica, sans-serif;
+}
+:root {
+  --width-content: 1080px;
+  --primary: #009ee3;
+  --color-link:#118bee;;
+  --color-bg: #fff;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 60% auto;
+  grid-gap: 5px;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 5px;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.grid-container > div {
+  font-size: 12px;
+  font-weight: bold;
+  word-break: break-all;
+  overflow: auto;
+}
+
+p.token {
+  font-size: 9px;
+  font-weight: normal;
+}
+
+input {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 2px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  padding: 5px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--color-link);
+}
+
+footer,
+header,
+main {
+    margin: 0 auto;
+    max-width: var(--width-content);
+    padding: 2rem 1rem;
+}
+header {
+  padding: 1rem;
+}
+
+/* Nav */
+nav {
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  margin-bottom: 0rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0.25rem 0.5rem;
+  position: relative;
+  text-align: left;
+  background-color: var(--primary);
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+a {
+  color: var(--color-bg);
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+}
+a#click-token, a#refresh-access-token {
+  color: var(--primary);
+  background-color: var(--primary);
+  color: white;
+  padding: 5px 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+nav ul li:hover, a#click-token:hover, a#refresh-access-token:hover {
+  background-color: var(--color-link);
+}
+
+#mp-title-nav {
+  color: var(--color-link);
+}
+
+
+/* Nav Dropdown */
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul {
+  background: var(--color-bg);
+  border: 1px solid var(--color-bg-secondary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow) var(--color-shadow);
+  display: none;
+  height: auto;
+  left: -2px;
+  padding: .5rem 1rem;
+  position: absolute;
+  top: 1.7rem;
+  white-space: nowrap;
+  width: auto;
+  z-index: 1;
+}
+
+nav ul li ul::before {
+  /* fill gap above to make mousing over them easier */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.5rem;
+  height: 0.5rem;
+}
+
+nav ul li ul li,
+nav ul li ul li a {
+  display: block;
+}

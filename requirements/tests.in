@@ -1,0 +1,2 @@
+-r sample_app.in
+pytest==7.1.2

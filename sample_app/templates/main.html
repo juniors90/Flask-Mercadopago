@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>Mercadopago OAuth Python Example</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='prism.css') }}">
+    {{ mercadopago.load_js() }}
+    
+    <script src="{{url_for('static', filename='js/mercadopago/MercadoPago.js')}}"></script>
+    <script>
+        function toggleDiv(div) {
+            var x = document.getElementById(div);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+          <h1>
+            <a id="mp-title-nav"href="/">
+              Flask-Mercadopago API
+            </a>
+          </h1>
+
+          <ul>
+            <li><a href="#">Documentations</a>
+                <ul>
+                    <li><a href="https://www.mercadopago.com.ar/developers/en" target="_blank">Mercado Pago Devs</a></li>
+                    <li><a href="https://flask-mercadopago.readthedocs.io/en/latest/" target="_blank">Flask-Mercadopago</a></li>
+                    <li><a href="https://github.com/juniors90/Flask-Mercadopago" target="_blank">Source Code</a></li>
+                </ul>
+            </li>
+            {% if access_token %}
+            <li>
+              <a href="{{url_for('preferences')}}">Preferences</a>
+            </li>
+            <li>
+              <a href="{{url_for('logout')}}">Logout</a>
+            </li>
+            {% endif %}
+            
+          </ul>
+        </nav>
+      </header>
+<div class="layout">
+    
+    <div class="grid-item">
+        <div class="grid-container">
+            <form action="/" method="post">
+
+                <div class="grid-item">
+                    <label id="responseTypelabel" for="response_type">Response Type:</label><br/>
+                    <input name="response_type" id="response_type" aria-label="responseTypelabel"
+                           value="{{response_type}}">
+                </div>
+
+                <div class="grid-item">
+                    <label id="clientIdLabel" for="client_id">Client Id:</label><br/>
+                    <input name="client_id" id="client_id" aria-label="clientIdLabel" value="{{client_id}}"
+                           required="true">
+                </div>
+
+                <div class="grid-item">
+                    <label id="callBackLabel" for="callback_url">Callback URL:</label><br/>
+                    <input type="url" name="callback_url" id="callback_url" aria-label="callBackLabel"
+                           value="{{callback_url}}"
+                           required="true">
+                </div>
+
+                <div class="grid-item">
+                    <label id="stateLabel" for="state">State (optional):</label><br/>
+                    <input name="state" id="state" aria-label="stateLabel" value="{{state}}" required="true">
+                </div>
+
+                <div class="grid-item">
+                    <input type="submit" value="Connect!">
+                </div>
+
+                <div class="grid-item">
+
+                </div>
+
+                <div class="grid-item">
+
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if access_token %}
+    <div class="grid-item">
+        <div class="grid-container">
+            <div class="grid-item">
+                Access Token: <br/>
+
+                {% if access_token %}
+                    <p class="token">{{access_token}} <br/> <a onclick="toggleDiv('deets')" href="#" id="click-token">Toggle
+                        Details</a>
+                    </p>
+
+                    <div id="deets" style="display: none;">
+                        <pre><code class="language-json">{{access_token_details}}</code></pre>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="grid-item">
+                Expiration: <br/>
+                <div id="deets">{{expires_in}}</div>
+            </div>
+
+            <div class="grid-item">
+                Refresh Token: <br/>
+                {% if refresh_token %}
+                    <p class="token">{{refresh_token}} <br/><a href="/refresh-access-token" id="refresh-access-token">Refresh The Access
+                        Token</a>
+                    </p>
+                {% endif %}
+            </div>
+
+
+        </div>
+     {% endif %}
+</div>
+</div>
+{% if access_token %}
+    <div class="grid-container">
+        <form method="post" action="/call-api">
+            <div class="grid-item">
+                <label id="urlLabel" for="url"> Simple API Invoke With Token:</label>
+                <input type="url" id="url" name="url" aria-label="urlLabel"
+                       value="{{base_url}}/identification_types">
+            </div>
+            <div class="grid-item">
+                <input type="submit" value="Go!">
+            </div>
+            {% if api_response %}
+                <div class="grid-item">
+                <pre class="token">
+                    <code class="language-json">
+{{api_response}}
+                    </code>
+                </pre>
+                </div>
+            {% endif %}
+        </form>
+
+    </div>
+{% endif %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='functions.js') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='prism.js') }}">
+</body>
+</html>

@@ -1,0 +1,3 @@
+-r tests.in
+coverage==6.4.2
+pytest-cov==3.0.0
