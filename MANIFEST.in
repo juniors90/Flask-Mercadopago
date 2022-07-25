@@ -2,6 +2,7 @@ include LICENSE
 include README.md
 include CHANGELOG.rst
 recursive-include flask_mercadopago *.py
+recursive-include flask_mercadopago *.js
 
 exclude tox.ini
 exclude .docstr.yaml

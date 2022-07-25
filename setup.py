@@ -57,7 +57,7 @@ funding = "https://paypal.me/juniors90"
 setup(
     name="Flask-Mercadopago",
     version=VERSION,
-    description="Flask Mercadopago.",  # noqa: E501
+    description="Implementation of Mercadopago OAuth in Flask.",  # noqa: E501
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     author="Ferreira Juan David",

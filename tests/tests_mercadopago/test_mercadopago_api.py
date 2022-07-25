@@ -34,6 +34,7 @@ import pytest
 # TESTS
 # =====================================================================
 
+
 @pytest.mark.usefixtures("client")
 class TestMercadopago:
     def test_extension_init(self, app):
