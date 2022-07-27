@@ -84,11 +84,11 @@ mercadopago = Mercadopago(app)
   
 You will get a form like this:
 
-![form rendering](https://raw.githubusercontent.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/form.png)
+![form rendering](docs/source/_static/form.png)
 
 When the validation, the response data will be rendered with proper style:
 
-![validations](https://raw.githubusercontent.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/validations.png)
+![validations](docs/source/_static/validations.png)
     
 ## Links
 
