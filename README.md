@@ -45,7 +45,7 @@ from flask import Flask
 from flask_mercadopago import Mercadopago
 
 app = Flask(__name__)
-fomantic = MErcadopago(app)
+mercadopago = MErcadopago(app)
 ```
 
 ## Recommended running instructions for dev:
@@ -84,7 +84,7 @@ You will get a form like this:
 
 ![form rendering](https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/Captura%20de%20pantalla%202022-07-24%20222359.png)
 
-When the validation, the response will be rendered with proper style:
+When the validation, the response data will be rendered with proper style:
 
 ![error form rendering](https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/Captura%20de%20pantalla%202022-07-24%20222732.png)
     
