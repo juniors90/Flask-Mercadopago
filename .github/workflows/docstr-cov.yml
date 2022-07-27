@@ -17,7 +17,7 @@ on:
 
 env:
   RANGE: 50..75
-  ENDPOINT: https://jsonbin.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
+  ENDPOINT: https://api.jsonbin.io/v3/
   TOKEN: ${{ secrets.JSONBIN_APIKEY }}
 
 jobs:
@@ -89,17 +89,19 @@ jobs:
 
       - name: Post results
         run: |
-          curl -X POST $ENDPOINT/badges/docstr-cov \
+          curl -X POST $ENDPOINT \
           -H "authorization: token $TOKEN" \
           -d "{ \"schemaVersion\": 1, \"label\": \"docstr-cov\", \
-                \"message\": \"$NEW_COV%\", \"color\": \"$COLOR\" }"
+                \"message\": \"$NEW_COV%\", \"color\": \"$COLOR\", \
+                \"owner\":\"${{ github.repository_owner }}\", \
+                \"repo\":\"${{ github.event.repository.name }}\" }"
         if: always() && github.event_name == 'push'
 
       - name: Set public endpoint
         run: |
-          curl -X PUT $ENDPOINT/_perms -H "authorization: token $TOKEN"
+          curl -X PUT $ENDPOINT/ -H "authorization: token $TOKEN"
         if: always() && github.event_name == 'push'
 
       - name: Show badge URL
-        run: echo "https://img.shields.io/endpoint?url=$ENDPOINT/badges/docstr-cov"
+        run: echo "https://img.shields.io/endpoint?url=$ENDPOINT/${{ github.repository_owner }}/${{ github.event.repository.name }}/badges/docstr-cov"
         if: always() && github.event_name == 'push'
