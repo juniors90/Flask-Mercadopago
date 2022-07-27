@@ -21,8 +21,8 @@ Implementation of Mercadopago OAuth in Flask.
 # =============================================================================
 # IMPORTS
 # =============================================================================
-import uuid
 
+import uuid
 import warnings
 
 from flask import Blueprint, Markup, current_app, url_for

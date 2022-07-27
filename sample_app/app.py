@@ -79,7 +79,7 @@ assert (
 ), "You need to update your config key CLIENT_SECRET in this line"
 assert (
     app.config["ORG_CONNECTION_COMPLETED_URL"] != "place_org_url_here"
-), "You need to update your config key ORG_CONNECTION_COMPLETED_URL in this line"
+), "You need to update your config key ORG_CONNECTION_COMPLETED_URL in this line"  # noqa: E501
 
 
 def update_token_info(res):
