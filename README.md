@@ -1,7 +1,7 @@
 # Flask-Mercadopago
 
 [![codecov](https://codecov.io/gh/juniors90/Flask-Mercadopago/branch/main/graph/badge.svg?token=ePNLhWhSV7)](https://codecov.io/gh/juniors90/Flask-Mercadopago)
-![docstr-cov](https://img.shields.io/endpoint?url=https://jsonbin.io/juniors90/Flask-Mercadopago/badges/docstr-cov)
+![docstr-cov](https://img.shields.io/endpoint?url=https://api.jsonbin.io/v3/b/62e0ed948ebcdb7588435b36?meta=false)
 [![Build status](https://github.com/juniors90/Flask-Mercadopago/actions/workflows/main.yml/badge.svg)](https://github.com/juniors90/Flask-Mercadopago/actions)
 [![GitHub issues](https://img.shields.io/github/issues/juniors90/Flask-Mercadopago)](https://github.com/juniors90/Flask-Mercadopago/issues)
 [![GitHub forks](https://img.shields.io/github/forks/juniors90/Flask-Mercadopago)](https://github.com/juniors90/Flask-Mercadopago/network)
