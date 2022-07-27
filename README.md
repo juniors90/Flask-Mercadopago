@@ -3,13 +3,14 @@
 [![codecov](https://codecov.io/gh/juniors90/Flask-Mercadopago/branch/main/graph/badge.svg?token=ePNLhWhSV7)](https://codecov.io/gh/juniors90/Flask-Mercadopago)
 ![docstr-cov](https://img.shields.io/endpoint?url=https://api.jsonbin.io/v3/b/62e15eac8ebcdb758843f9af?meta=false)
 [![Build status](https://github.com/juniors90/Flask-Mercadopago/actions/workflows/main.yml/badge.svg)](https://github.com/juniors90/Flask-Mercadopago/actions)
+[![Documentation Status](https://readthedocs.org/projects/flask-mercadopago/badge/?version=latest)](https://flask-mercadopago.readthedocs.io/en/latest/?badge=latest)
 [![GitHub issues](https://img.shields.io/github/issues/juniors90/Flask-Mercadopago)](https://github.com/juniors90/Flask-Mercadopago/issues)
 [![GitHub forks](https://img.shields.io/github/forks/juniors90/Flask-Mercadopago)](https://github.com/juniors90/Flask-Mercadopago/network)
 [![GitHub stars](https://img.shields.io/github/stars/juniors90/Flask-Mercadopago)](https://github.com/juniors90/Flask-Mercadopago/stargazers)
 [![GitHub license](https://img.shields.io/github/license/juniors90/Flask-Mercadopago)](https://github.com/juniors90/Flask-Mercadopago/blob/main/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/juniors90/Flask-Mercadopago?color=green)](https://github.com/juniors90/Flask-Mercadopago/graphs/contributors)
 
-Flask-Mercadopago is a collection of functions. 
+Flask-Mercadopago is a collection of methods for the implementation of Mercado Pago OAuth in Flask.
 
 ## Features
 
