@@ -47,6 +47,6 @@ You will get a form like this:
 
 When the validation, the response data will be rendered with proper style:
 
-.. image:: res/form.png
+.. image:: res/validations.png
     :alt: form
     :target: https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/validations.png
