@@ -13,6 +13,7 @@ Welcome to Flask-Mercadopago's documentation!
    notes/index
    notes/basic
    notes/config
+   notes/sample-app
    notes/changelog
    modules/modules
 
