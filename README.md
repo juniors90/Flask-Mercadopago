@@ -14,8 +14,8 @@ Flask-Mercadopago is a collection of methods for the implementation of Mercado P
 
 ## Features
 
-- [x] Authentication generation.
-- [x] Preference generation.
+- [x] [Authentication generation](https://www.mercadopago.com.ar/developers/en/reference/oauth/_oauth_token/post).
+- [x] [Preference generation](https://www.mercadopago.com.ar/developers/en/reference/preferences/_checkout_preferences/post).
 
 
 ## Requirements
@@ -84,11 +84,11 @@ mercadopago = Mercadopago(app)
   
 You will get a form like this:
 
-![form rendering](https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/Captura%20de%20pantalla%202022-07-24%20222359.png)
+![form rendering](https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/form.png)
 
 When the validation, the response data will be rendered with proper style:
 
-![error form rendering](https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/Captura%20de%20pantalla%202022-07-24%20222732.png)
+![validations](https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/validations.png)
     
 ## Links
 
