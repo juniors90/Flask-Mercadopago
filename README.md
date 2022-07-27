@@ -45,7 +45,7 @@ from flask import Flask
 from flask_mercadopago import Mercadopago
 
 app = Flask(__name__)
-mercadopago = MErcadopago(app)
+mercadopago = Mercadopago(app)
 ```
 
 ## Recommended running instructions for dev:
