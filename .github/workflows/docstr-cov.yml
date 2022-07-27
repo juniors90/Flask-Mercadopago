@@ -19,7 +19,7 @@ env:
   RANGE: 50..75
   ENDPOINT: https://api.jsonbin.io/v3
   TOKEN: ${{ secrets.JSONBIN_APIKEY }}
-  ID_BIN: 62e0ed948ebcdb7588435b36
+  ID_BIN: 62e15eac8ebcdb758843f9af
 
 jobs:
   check:
@@ -88,17 +88,7 @@ jobs:
           fi
         if: always() && github.event_name == 'push'
 
-      - name: Post results
-        run: |
-          curl -X POST $ENDPOINT/b \
-          -H "Content-Type: application/json" \
-          -H "X-Master-key: $TOKEN" \
-          -H "X-Bin-Private: false" \
-          -d "{ \"schemaVersion\": 1, \"label\": \"docstr-cov\", \
-                \"message\": \"$NEW_COV%\", \"color\": \"$COLOR\" }"
-        if: always() && github.event_name == 'push'
-
-      - name: Set public endpoint
+      - name: Set post result endpoint
         run: |
           curl -v -H "Content-Type: application/json" \
           -H "X-Master-key: $TOKEN" \
