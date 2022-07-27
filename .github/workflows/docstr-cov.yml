@@ -19,6 +19,7 @@ env:
   RANGE: 50..75
   ENDPOINT: https://api.jsonbin.io/v3
   TOKEN: ${{ secrets.JSONBIN_APIKEY }}
+  ID_BIN: 62e0ed948ebcdb7588435b36
 
 jobs:
   check:
@@ -99,9 +100,15 @@ jobs:
 
       - name: Set public endpoint
         run: |
-          curl -X PUT $ENDPOINT/b -H "X-Master-key: $TOKEN"
+          curl -v -H "Content-Type: application/json" \
+          -H "X-Master-key: $TOKEN" \
+          -H "X-Bin-Private: false" \
+          --request PUT \
+          --data "{ \"schemaVersion\": 1, \"label\": \"docstr-cov\", \
+                \"message\": \"$NEW_COV%\", \"color\": \"$COLOR\" }" \
+          $ENDPOINT/b/$ID_BIN
         if: always() && github.event_name == 'push'
 
       - name: Show badge URL
-        run: echo "https://img.shields.io/endpoint?url=$ENDPOINT/"
+        run: echo "https://img.shields.io/endpoint?url=$ENDPOINT/b/$ID_BIN?meta=false"
         if: always() && github.event_name == 'push'
