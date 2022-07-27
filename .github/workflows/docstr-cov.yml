@@ -17,7 +17,7 @@ on:
 
 env:
   RANGE: 50..75
-  ENDPOINT: https://jsonbin.org/${{ github.repository_owner }}/${{ github.event.repository.name }}
+  ENDPOINT: https://jsonbin.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
   TOKEN: ${{ secrets.JSONBIN_APIKEY }}
 
 jobs:
