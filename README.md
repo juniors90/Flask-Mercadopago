@@ -12,8 +12,8 @@ Flask-Mercadopago is a collection of functions.
 
 ## Features
 
-- [x] Authentication generation:
-- [x] Preference generation:
+- [x] Authentication generation.
+- [x] Preference generation.
 
 
 ## Requirements
@@ -79,6 +79,14 @@ fomantic = MErcadopago(app)
     ```shell script
     $> (venv) python sample_app/app.py
     ```
+  
+You will get a form like this:
+
+![form rendering](https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/Captura%20de%20pantalla%202022-07-24%20222359.png)
+
+When the validation, the response will be rendered with proper style:
+
+![error form rendering](https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/Captura%20de%20pantalla%202022-07-24%20222732.png)
     
 ## Links
 
