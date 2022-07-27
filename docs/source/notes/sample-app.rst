@@ -40,13 +40,13 @@ On Windows
   
 You will get a form like this:
 
-.. image:: res/form.png
+.. image:: ../_static/form.png
     :alt: form
-    :target: https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/form.png
+    :target: https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/_static/form.png
     
 
 When the validation, the response data will be rendered with proper style:
 
-.. image:: res/validations.png
+.. image:: ../_static/validations.png
     :alt: form
-    :target: https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/notes/res/validations.png
+    :target: https://github.com/juniors90/Flask-Mercadopago/blob/main/docs/source/_static/validations.png
