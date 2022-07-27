@@ -10,6 +10,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/juniors90/Flask-Mercadopago)](https://github.com/juniors90/Flask-Mercadopago/stargazers)
 [![GitHub license](https://img.shields.io/github/license/juniors90/Flask-Mercadopago)](https://github.com/juniors90/Flask-Mercadopago/blob/main/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/juniors90/Flask-Mercadopago?color=green)](https://github.com/juniors90/Flask-Mercadopago/graphs/contributors)
+[![black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 Flask-Mercadopago is a collection of methods for the implementation of Mercado Pago OAuth in Flask.
 
