@@ -1,5 +1,6 @@
 # Flask-Mercadopago
 
+![PyPI](https://img.shields.io/pypi/v/Flask-Mercadopago)
 [![codecov](https://codecov.io/gh/juniors90/Flask-Mercadopago/branch/main/graph/badge.svg?token=ePNLhWhSV7)](https://codecov.io/gh/juniors90/Flask-Mercadopago)
 ![docstr-cov](https://img.shields.io/endpoint?url=https://api.jsonbin.io/v3/b/62e15eac8ebcdb758843f9af?meta=false)
 [![Build status](https://github.com/juniors90/Flask-Mercadopago/actions/workflows/main.yml/badge.svg)](https://github.com/juniors90/Flask-Mercadopago/actions)
