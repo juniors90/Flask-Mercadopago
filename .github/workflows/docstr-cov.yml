@@ -17,7 +17,7 @@ on:
 
 env:
   RANGE: 50..75
-  ENDPOINT: https://api.jsonbin.io/v3/
+  ENDPOINT: https://api.jsonbin.io/v3/b
   TOKEN: ${{ secrets.JSONBIN_APIKEY }}
 
 jobs:
@@ -90,7 +90,7 @@ jobs:
       - name: Post results
         run: |
           curl -X POST $ENDPOINT \
-          -H "X-Master-key: $TOKEN" \
+          -H "Content-Type: application/json" -H "X-Master-key: $TOKEN" \
           -d "{ \"schemaVersion\": 1, \"label\": \"docstr-cov\", \
                 \"message\": \"$NEW_COV%\", \"color\": \"$COLOR\" }"
         if: always() && github.event_name == 'push'
