@@ -90,16 +90,14 @@ jobs:
       - name: Post results
         run: |
           curl -X POST $ENDPOINT \
-          -H "authorization: token $TOKEN" \
+          -H "X-Master-key: $TOKEN" \
           -d "{ \"schemaVersion\": 1, \"label\": \"docstr-cov\", \
-                \"message\": \"$NEW_COV%\", \"color\": \"$COLOR\", \
-                \"owner\":\"${{ github.repository_owner }}\", \
-                \"repo\":\"${{ github.event.repository.name }}\" }"
+                \"message\": \"$NEW_COV%\", \"color\": \"$COLOR\" }"
         if: always() && github.event_name == 'push'
 
       - name: Set public endpoint
         run: |
-          curl -X PUT $ENDPOINT/ -H "authorization: token $TOKEN"
+          curl -X PUT $ENDPOINT/ -H "X-Master-key: $TOKEN"
         if: always() && github.event_name == 'push'
 
       - name: Show badge URL
