@@ -21,6 +21,8 @@ Implementation of Mercadopago OAuth in Flask.
 # =============================================================================
 # IMPORTS
 # =============================================================================
+import uuid
+
 import warnings
 
 from flask import Blueprint, Markup, current_app, url_for
@@ -121,7 +123,7 @@ class Mercadopago(object):
         app.config.setdefault("CLIENT_ID", None)
         app.config.setdefault("CLIENT_SECRET", None)
         app.config.setdefault("ORG_CONNECTION_COMPLETED_URL", None)
-        app.config.setdefault("STATE", None)
+        app.config.setdefault("STATE", uuid.uuid1())
         app.config.setdefault(
             "TOKEN_ENDPOINT", "https://api.mercadopago.com/oauth/token"
         )

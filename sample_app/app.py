@@ -27,7 +27,6 @@ import logging
 import os
 import pathlib
 import sys
-import uuid
 
 from flask import (
     Flask,
@@ -55,18 +54,32 @@ mercadopago = Mercadopago(app)
 
 SERVER_URL = "http://localhost:5000"
 
-app.config["CLIENT_ID"] = os.getenv("CLIENT_ID")
-app.config["CLIENT_SECRET"] = os.getenv("CLIENT_SECRET")
-app.config["APP_ACCESS_TOKEN"] = os.getenv("APP_ACCESS_TOKEN")
-app.config["RESPONSE_TYPE"] = "code"
-app.config["STATE"] = uuid.uuid1()
+app.config["CLIENT_ID"] = os.environ.get("CLIENT_ID")
+app.config["CLIENT_SECRET"] = os.environ.get("CLIENT_SECRET")
+app.config["APP_ACCESS_TOKEN"] = os.environ.get("APP_ACCESS_TOKEN")
 app.config["CALLBACK_URL"] = f"{SERVER_URL}/callback"
 app.config["ORG_CONNECTION_COMPLETED_URL"] = SERVER_URL
-app.config[
-    "AUTHORIZATION_ENDPOINT"
-] = "https://auth.mercadopago.com.ar/authorization"
 app.config["MERCADOPAGO_SERVE_LOCAL"] = True
-app.config["TOKEN_ENDPOINT"] = "https://api.mercadopago.com/oauth/token"
+
+# Leave the line below as-is. This line of code verifies
+# that you've modified the APP_ACCESS_TOKEN, CALLBACK_URL,
+# CLIENT_ID, CLIENT_SECRET, CLIENT_REDIRECT_URI to the
+# values above so that your application can complete OAuth.
+assert (
+    app.config["APP_ACCESS_TOKEN"] != "place_app_access_token_here"
+), "You need to update your config key APP_ACCESS_TOKEN in this line"
+assert (
+    app.config["CALLBACK_URL"] != "place_client_redirect_uri_here"
+), "You need to update your config key CALLBACK_URL in this line"
+assert (
+    app.config["CLIENT_ID"] != "place_client_id_here"
+), "You need to update your config key CLIENT_ID in this line"
+assert (
+    app.config["CLIENT_SECRET"] != "place_client_secret_here"
+), "You need to update your config key CLIENT_SECRET in this line"
+assert (
+    app.config["ORG_CONNECTION_COMPLETED_URL"] != "place_org_url_here"
+), "You need to update your config key ORG_CONNECTION_COMPLETED_URL in this line"
 
 
 def update_token_info(res):
