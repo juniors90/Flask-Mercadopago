@@ -38,6 +38,13 @@ from flask import (
     url_for,
 )
 
+from dotenv import load_dotenv
+
+load_dotenv()  # take environment variables from .env.
+
+# Code of your application, which uses environment variables (e.g. from `os.environ` or
+# `os.getenv`) as if they came from the actual environment.
+
 import requests
 
 # this path is pointing to project/docs/source
@@ -265,8 +272,13 @@ def preferences():
                 "success": "http://localhost:5000/success",
             },
         }
-        access_token = session["access_token"]
-        headers = get_headers(access_token=access_token)
+        # access_token = session["access_token"]
+        # headers = get_headers(access_token=access_token)
+        headers = {
+            "Authorization": "Bearer "
+            + current_app.config["APP_ACCESS_TOKEN"],
+            "Content-Type": "application/json",
+        }
         res = requests.post(url, headers=headers, json=params)
         res_json = res.json()
         session["api_response"] = json.dumps(res_json, indent=4)

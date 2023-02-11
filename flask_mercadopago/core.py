@@ -26,6 +26,26 @@ import uuid
 import warnings
 
 from flask import Blueprint, Markup, current_app, url_for
+from mercadopago.config import RequestOptions
+from mercadopago.http import HttpClient
+from mercadopago.resources import (
+    AdvancedPayment,
+    Card,
+    CardToken,
+    Chargeback,
+    Customer,
+    DisbursementRefund,
+    IdentificationType,
+    MerchantOrder,
+    Payment,
+    PaymentMethods,
+    Plan,
+    PreApproval,
+    Preference,
+    Refund,
+    Subscription,
+    User,
+)
 
 import markupsafe
 
@@ -286,11 +306,11 @@ class Mercadopago(object):
             payload["refresh_token"] = refresh_token
         res = requests.post(endpoint, headers=headers, params=payload)
         return res
-
+    """
     def api_get_identification_types(
         self, access_token: str
     ) -> requests.Request:
-        """Consult all the types of documents available by country.
+        Consult all the types of documents available by country.
 
         Get a list with the ID and details of each one.
 
@@ -303,12 +323,13 @@ class Mercadopago(object):
         ------
         res : requests.Response
             ``Response.Response`` object.
-        """
+        
         url = current_app.config["BASE_URL"] + "/identification_types"
         headers = get_headers(access_token=access_token)
         res = requests.get(url, headers=headers)
         return res
-
+    """
+    
     def get_location(self, endpoint: str) -> str:
         """Generate the authorization or token endpoint resources.
 
@@ -471,3 +492,259 @@ class Mercadopago(object):
         else:
             script_html = simple_scripts_js(url)
         return script_html
+
+    def advanced_payment(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return AdvancedPayment(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def card_token(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return CardToken(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def card(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return Card(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def customer(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return Customer(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def disbursement_refund(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return DisbursementRefund(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def identification_type(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return IdentificationType(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def merchant_order(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return MerchantOrder(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def payment(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return Payment(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def payment_methods(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return PaymentMethods(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def preapproval(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return PreApproval(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def preference(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return Preference(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def refund(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return Refund(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def user(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return User(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def chargeback(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return Chargeback(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def subscription(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return Subscription(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+
+    def plan(self, http_client=None, request_options=None):
+        """
+        Returns the attribute value of the function
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        return Plan(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
