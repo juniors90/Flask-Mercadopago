@@ -26,6 +26,9 @@ import uuid
 import warnings
 
 from flask import Blueprint, Markup, current_app, url_for
+
+import markupsafe
+
 from mercadopago.config import RequestOptions
 from mercadopago.http import HttpClient
 from mercadopago.resources import (
@@ -46,8 +49,6 @@ from mercadopago.resources import (
     Subscription,
     User,
 )
-
-import markupsafe
 
 import requests
 
@@ -306,30 +307,7 @@ class Mercadopago(object):
             payload["refresh_token"] = refresh_token
         res = requests.post(endpoint, headers=headers, params=payload)
         return res
-    """
-    def api_get_identification_types(
-        self, access_token: str
-    ) -> requests.Request:
-        Consult all the types of documents available by country.
 
-        Get a list with the ID and details of each one.
-
-        Parameters
-        ----------
-        access_token : ``str``
-            An access token.
-
-        Return
-        ------
-        res : requests.Response
-            ``Response.Response`` object.
-        
-        url = current_app.config["BASE_URL"] + "/identification_types"
-        headers = get_headers(access_token=access_token)
-        res = requests.get(url, headers=headers)
-        return res
-    """
-    
     def get_location(self, endpoint: str) -> str:
         """Generate the authorization or token endpoint resources.
 

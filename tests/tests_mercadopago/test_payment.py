@@ -23,19 +23,20 @@ Implementation of Mercadopago API OAuth in Flask.
 
 from datetime import datetime
 
-from flask import current_app
-
 import pytest
+from flask import current_app
 
 # =====================================================================
 # TESTS
 # =====================================================================
+
 
 @pytest.mark.usefixtures("client")
 class TestPayment:
     """
     Test Module: Payment
     """
+
     def test_create_and_find(self, mercadopago, app) -> str:
         """
         Test Function: Payment
@@ -44,7 +45,7 @@ class TestPayment:
             current_app.config[
                 "APP_ACCESS_TOKEN"
             ] = "APP_USR-558881221729581-091712-44fdc612e60e3e638775d8b4003edd51-471763966"
-        
+
         card_token_object = {
             "card_number": "4074090000000004",
             "security_code": "123",
@@ -52,10 +53,8 @@ class TestPayment:
             "expiration_month": "12",
             "cardholder": {
                 "name": "APRO",
-                "identification": {
-                    "CPF": "19119119100"
-                }
-            }
+                "identification": {"CPF": "19119119100"},
+            },
         }
 
         card_token_created = mercadopago.card_token().create(card_token_object)
@@ -68,10 +67,7 @@ class TestPayment:
             "payment_method_id": "visa",
             "payer": {
                 "email": "test_user_123456@testuser.com",
-                "identification": {
-                    "number": "19119119100",
-                    "type": "CPF"
-                }
+                "identification": {"number": "19119119100", "type": "CPF"},
             },
             "notification_url": "https://www.suaurl.com/notificacoes/",
             "sponsor_id": None,
@@ -87,7 +83,7 @@ class TestPayment:
                         "picture_url": "https://http2.mlstatic.com/resources/frontend/statics/growth-sellers-landings/device-mlb-point-i_medium@2x.png",  # pylint: disable=line-too-long
                         "category_id": "electronics",
                         "quantity": 1,
-                        "unit_price": 58.80
+                        "unit_price": 58.80,
                     }
                 ],
                 "payer": {
@@ -96,13 +92,10 @@ class TestPayment:
                     "address": {
                         "zip_code": "06233-200",
                         "street_name": "Av das Nacoes Unidas",
-                        "street_number": 3003
+                        "street_number": 3003,
                     },
                     "registration_date": "2019-01-01T12:01:01.000-03:00",
-                    "phone": {
-                        "area_code": "011",
-                        "number": "987654321"
-                    }
+                    "phone": {"area_code": "011", "number": "987654321"},
                 },
                 "shipments": {
                     "receiver_address": {
@@ -110,16 +103,16 @@ class TestPayment:
                         "street_number": 3003,
                         "zip_code": "06233200",
                         "city_name": "Buzios",
-                        "state_name": "Rio de Janeiro"
+                        "state_name": "Rio de Janeiro",
                     }
-                }
-            }
+                },
+            },
         }
 
         payment_created = mercadopago.payment().create(payment_object)
         assert payment_created["status"] == 201
 
         payment_found = mercadopago.payment().get(
-            payment_created["response"]["id"])
+            payment_created["response"]["id"]
+        )
         assert payment_found["status"] == 200
-

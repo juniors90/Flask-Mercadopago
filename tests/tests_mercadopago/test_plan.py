@@ -23,9 +23,8 @@ Implementation of Mercadopago API OAuth in Flask.
 
 import random
 
-from flask import current_app
-
 import pytest
+from flask import current_app
 
 # =====================================================================
 # TESTS

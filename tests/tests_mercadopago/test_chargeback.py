@@ -25,15 +25,18 @@ from flask import current_app
 
 import pytest
 
+
 # =====================================================================
 # TESTS
 # =====================================================================
+
 
 @pytest.mark.usefixtures("client")
 class TestChargeback:
     """
     Test Module: Chargeback
     """
+
     def test_search_chargeback(self, mercadopago, app):
         """
         Test Function: Chargeback
@@ -42,10 +45,10 @@ class TestChargeback:
             current_app.config[
                 "APP_ACCESS_TOKEN"
             ] = "APP_USR-1148860861802028-072017-b6355e068517038cb6cb45e7eafe4ec5-1162652745"
-        
-        filters_chargeback = {
-            "payment_id": "12345"
-        }
 
-        chargebacks = mercadopago.chargeback().search(filters=filters_chargeback)
+        filters_chargeback = {"payment_id": "12345"}
+
+        chargebacks = mercadopago.chargeback().search(
+            filters=filters_chargeback
+        )
         assert chargebacks["status"] == 200

@@ -28,24 +28,18 @@ import os
 import pathlib
 import sys
 
-from flask import (
-    Flask,
-    current_app,
-    redirect,
-    render_template,
-    request,
-    session,
-    url_for,
-)
-
 from dotenv import load_dotenv
+
+from flask import (Flask, current_app, redirect, render_template, request,
+                   session, url_for)
+
+import requests
 
 load_dotenv()  # take environment variables from .env.
 
-# Code of your application, which uses environment variables (e.g. from `os.environ` or
-# `os.getenv`) as if they came from the actual environment.
-
-import requests
+# Code of your application, which uses environment variables
+# (e.g. from `os.environ` or `os.getenv`) as if they came from
+# the actual environment.
 
 # this path is pointing to project/docs/source
 CURRENT_PATH = pathlib.Path(os.path.abspath(os.path.dirname(__file__)))

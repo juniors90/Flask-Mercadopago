@@ -22,10 +22,9 @@ Implementation of Mercadopago API OAuth in Flask.
 # =============================================================================
 
 
-from flask_mercadopago.utils import get_headers, get_payload
-
 import pytest
 
+from flask_mercadopago.utils import get_headers, get_payload
 
 # =============================================================================
 # TEST

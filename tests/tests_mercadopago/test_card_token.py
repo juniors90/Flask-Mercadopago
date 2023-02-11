@@ -27,9 +27,11 @@ from flask import current_app
 
 import pytest
 
+
 # =====================================================================
 # TESTS
 # =====================================================================
+
 
 @pytest.mark.usefixtures("client")
 class TestCardToken:
@@ -45,7 +47,7 @@ class TestCardToken:
             current_app.config[
                 "APP_ACCESS_TOKEN"
             ] = "APP_USR-1148860861802028-072017-b6355e068517038cb6cb45e7eafe4ec5-1162652745"
-        
+
         card_token_object = {
             "card_number": "4074090000000004",
             "security_code": "123",
@@ -53,13 +55,16 @@ class TestCardToken:
             "expiration_month": "12",
             "cardholder": {
                 "name": "APRO",
-                "identification": {
-                    "CPF": "19119119100"
-                }
-            }
+                "identification": {"CPF": "19119119100"},
+            },
         }
 
         card_token_created = mercadopago.card_token().create(card_token_object)
 
         assert card_token_created["status"] == 201
-        assert mercadopago.card_token().get(card_token_created["response"]["id"])["status"] == 200
+        assert (
+            mercadopago.card_token().get(card_token_created["response"]["id"])[
+                "status"
+            ]
+            == 200
+        )

@@ -21,13 +21,13 @@ Implementation of Mercadopago API OAuth in Flask.
 # IMPORTS
 # =====================================================================
 
-from flask import current_app
-
 import pytest
+from flask import current_app
 
 # =====================================================================
 # TESTS
 # =====================================================================
+
 
 @pytest.mark.usefixtures("client")
 class TestPaymentMethods:
@@ -43,5 +43,5 @@ class TestPaymentMethods:
             current_app.config[
                 "APP_ACCESS_TOKEN"
             ] = "APP_USR-1148860861802028-072017-b6355e068517038cb6cb45e7eafe4ec5-1162652745"
-        
+
         assert mercadopago.payment_methods().list_all()["status"] == 200

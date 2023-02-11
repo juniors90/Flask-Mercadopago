@@ -21,19 +21,20 @@ Implementation of Mercadopago API OAuth in Flask.
 # IMPORTS
 # =====================================================================
 
-from flask import current_app
-
 import pytest
+from flask import current_app
 
 # =====================================================================
 # TESTS
 # =====================================================================
+
 
 @pytest.mark.usefixtures("client")
 class TestIdentificationType:
     """
     Test Module: Identification Type
     """
+
     def test_find_all(self, mercadopago, app) -> str:
         """
         Test Function: Identification Type

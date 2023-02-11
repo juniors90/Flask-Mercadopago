@@ -28,6 +28,7 @@ def test_can_import_package():
 
 def test_can_initialize_app_and_extesion():
     from flask import Flask
+
     from flask_mercadopago import Mercadopago
 
     app = Flask(__name__)
@@ -36,6 +37,7 @@ def test_can_initialize_app_and_extesion():
 
 def test_can_initialize_app_and_extesion_with_factory_func():
     from flask import Flask
+
     from flask_mercadopago import Mercadopago
 
     app = Flask(__name__)

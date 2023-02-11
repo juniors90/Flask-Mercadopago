@@ -23,9 +23,8 @@ Implementation of Mercadopago API OAuth in Flask.
 
 import uuid
 
-from flask import current_app
-
 import pytest
+from flask import current_app
 
 # =====================================================================
 # TESTS
@@ -37,6 +36,7 @@ class TestMerchantOrder:
     """
     Test Module: Merchant Order
     """
+
     def test_all(self, mercadopago, app) -> str:
         """
         Test Function: Merchant Order
@@ -45,7 +45,7 @@ class TestMerchantOrder:
             current_app.config[
                 "APP_ACCESS_TOKEN"
             ] = "APP_USR-558881221729581-091712-44fdc612e60e3e638775d8b4003edd51-471763966"
-        
+
         preference_object = {
             "items": [
                 {
@@ -55,7 +55,7 @@ class TestMerchantOrder:
                     "quantity": 1,
                     "title": "Item 1",
                     "currency_id": "R$",
-                    "unit_price": 20.5
+                    "unit_price": 20.5,
                 }
             ]
         }
@@ -69,25 +69,32 @@ class TestMerchantOrder:
             "additional_info": "Aditional info",
             "external_reference": str(uuid.uuid4().int),
             "marketplace": "NONE",
-            "items": [{
-                "description": "Test Update Success",
-                "id": "5678",
-                "picture_url": "http://product1.image.png",
-                "quantity": 1,
-                "title": "Item 1",
-                "currency_id": "BRL",
-                "unit_price": 20.5
-            }]
+            "items": [
+                {
+                    "description": "Test Update Success",
+                    "id": "5678",
+                    "picture_url": "http://product1.image.png",
+                    "quantity": 1,
+                    "title": "Item 1",
+                    "currency_id": "BRL",
+                    "unit_price": 20.5,
+                }
+            ],
         }
 
-        merchant_order_created = mercadopago.merchant_order().create(merchant_order_object)
+        merchant_order_created = mercadopago.merchant_order().create(
+            merchant_order_object
+        )
         assert merchant_order_created["status"] == 201
 
         merchant_order_updated = mercadopago.merchant_order().update(
-            merchant_order_created["response"]["id"], {"additional_info": "Info 2"})
+            merchant_order_created["response"]["id"],
+            {"additional_info": "Info 2"},
+        )
         assert merchant_order_updated["status"] == 200
 
         merchant_order_finded = mercadopago.merchant_order().get(
-            merchant_order_created["response"]["id"])
+            merchant_order_created["response"]["id"]
+        )
         assert merchant_order_finded["status"] == 200
         assert merchant_order_finded["response"]["additional_info"] == "Info 2"

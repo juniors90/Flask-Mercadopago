@@ -23,13 +23,13 @@ Implementation of Mercadopago API OAuth in Flask.
 
 import random
 
-from flask import current_app
-
 import pytest
+from flask import current_app
 
 # =====================================================================
 # TESTS
 # =====================================================================
+
 
 @pytest.mark.usefixtures("client")
 class TestCustomer:
@@ -50,29 +50,25 @@ class TestCustomer:
             "email": f"test_payer_{random_email_id}@testuser.com",
             "first_name": "Katniss",
             "last_name": "Everdeen",
-            "phone": {
-                "area_code": "03492",
-                "number": "432334"
-            },
-            "identification": {
-                "type": "DNI",
-                "number": "29804555"
-            },
-            "description": "customer description"
+            "phone": {"area_code": "03492", "number": "432334"},
+            "identification": {"type": "DNI", "number": "29804555"},
+            "description": "customer description",
         }
 
         customer_saved = mercadopago.customer().create(customer_object)
         assert customer_saved["status"] == 201
 
         customer_update = mercadopago.customer().update(
-            customer_saved["response"]["id"], {"last_name": "Payer"})
+            customer_saved["response"]["id"], {"last_name": "Payer"}
+        )
         assert customer_update["status"] == 200
 
         customer_updated = mercadopago.customer().get(
-            customer_saved["response"]["id"])
+            customer_saved["response"]["id"]
+        )
         assert customer_updated["response"]["last_name"] == "Payer"
 
         customer_deleted = mercadopago.customer().delete(
-            customer_saved["response"]["id"])
+            customer_saved["response"]["id"]
+        )
         assert customer_deleted["status"] == 200
-
