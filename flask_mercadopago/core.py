@@ -471,258 +471,544 @@ class Mercadopago(object):
             script_html = simple_scripts_js(url)
         return script_html
 
-    def advanced_payment(self, http_client=None, request_options=None):
+    def advanced_payment(
+        self, http_client=None, request_options=None
+    ) -> AdvancedPayment:
         """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return AdvancedPayment(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Returns the attribute value of the function.
 
-    def card_token(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return CardToken(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
 
-    def card(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
+        Return
+        ------
+        res : ``mercadopago.resources.advanced_payment.AdvancedPayment``
+            ``mercadopago.resources.advanced_payment.AdvancedPayment`` object.
         """
         _http_client = HttpClient() if http_client is None else http_client
         _request_options = (
             RequestOptions() if request_options is None else request_options
         )
         _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return Card(
+        res = AdvancedPayment(
             request_options is not None
             and request_options
             or _request_options,
             _http_client,
         )
+        return res
 
-    def customer(self, http_client=None, request_options=None):
+    def card_token(self, http_client=None, request_options=None) -> CardToken:
         """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return Customer(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Returns the attribute value of the function.
 
-    def disbursement_refund(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return DisbursementRefund(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
 
-    def identification_type(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
+        Return
+        ------
+        res : ``mercadopago.resources.card_token.CardToken``
+            ``mercadopago.resources.card_token.CardToken`` object.
         """
         _http_client = HttpClient() if http_client is None else http_client
         _request_options = (
             RequestOptions() if request_options is None else request_options
         )
         _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return IdentificationType(
+        res = CardToken(
             request_options is not None
             and request_options
             or _request_options,
             _http_client,
         )
+        return res
 
-    def merchant_order(self, http_client=None, request_options=None):
+    def card(self, http_client=None, request_options=None) -> Card:
         """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return MerchantOrder(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Returns the attribute value of the function.
 
-    def payment(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return Payment(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
 
-    def payment_methods(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
+        Return
+        ------
+        res : ``mercadopago.resources.card.Card``
+            ``mercadopago.resources.card.Card`` object.
         """
         _http_client = HttpClient() if http_client is None else http_client
         _request_options = (
             RequestOptions() if request_options is None else request_options
         )
         _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return PaymentMethods(
+        res = Card(
             request_options is not None
             and request_options
             or _request_options,
             _http_client,
         )
+        return res
 
-    def preapproval(self, http_client=None, request_options=None):
+    def customer(self, http_client=None, request_options=None) -> Customer:
         """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return PreApproval(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Returns the attribute value of the function.
 
-    def preference(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return Preference(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
 
-    def refund(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
+        Return
+        ------
+        res : ``mercadopago.resources.customer.Customer``
+            ``mercadopago.resources.customer.Customer`` object.
         """
         _http_client = HttpClient() if http_client is None else http_client
         _request_options = (
             RequestOptions() if request_options is None else request_options
         )
         _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return Refund(
+        res = Customer(
             request_options is not None
             and request_options
             or _request_options,
             _http_client,
         )
+        return res
 
-    def user(self, http_client=None, request_options=None):
+    def disbursement_refund(
+        self, http_client=None, request_options=None
+    ) -> DisbursementRefund:
         """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return User(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Returns the attribute value of the function.
 
-    def chargeback(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
-        """
-        _http_client = HttpClient() if http_client is None else http_client
-        _request_options = (
-            RequestOptions() if request_options is None else request_options
-        )
-        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return Chargeback(
-            request_options is not None
-            and request_options
-            or _request_options,
-            _http_client,
-        )
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
 
-    def subscription(self, http_client=None, request_options=None):
-        """
-        Returns the attribute value of the function
+        Return
+        ------
+        res : ``mercadopago.resources.disbursement_refund.DisbursementRefund``
+            ``mercadopago.resources.disbursement_refund.DisbursementRefund`` object.
         """
         _http_client = HttpClient() if http_client is None else http_client
         _request_options = (
             RequestOptions() if request_options is None else request_options
         )
         _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return Subscription(
+        res = DisbursementRefund(
             request_options is not None
             and request_options
             or _request_options,
             _http_client,
         )
+        return res
 
-    def plan(self, http_client=None, request_options=None):
+    def identification_type(
+        self, http_client=None, request_options=None
+    ) -> IdentificationType:
         """
-        Returns the attribute value of the function
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.identification_type.IdentificationType``
+            ``mercadopago.resources.identification_type.IdentificationType`` object.
         """
         _http_client = HttpClient() if http_client is None else http_client
         _request_options = (
             RequestOptions() if request_options is None else request_options
         )
         _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
-        return Plan(
+        res = IdentificationType(
             request_options is not None
             and request_options
             or _request_options,
             _http_client,
         )
+        return res
+
+    def merchant_order(
+        self, http_client=None, request_options=None
+    ) -> MerchantOrder:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.merchant_order.MerchantOrder``
+            ``mercadopago.resources.merchant_order.MerchantOrder`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = MerchantOrder(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res
+
+    def payment(self, http_client=None, request_options=None) -> Payment:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.payment.Payment``
+            ``mercadopago.resources.payment.Payment`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = Payment(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res
+
+    def payment_methods(
+        self, http_client=None, request_options=None
+    ) -> PaymentMethods:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.payment_methods.PaymentMethods``
+            ``mercadopago.resources.payment_methods.PaymentMethods`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = PaymentMethods(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res
+
+    def preapproval(
+        self, http_client=None, request_options=None
+    ) -> PreApproval:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.preapproval.Preapproval``
+            ``mercadopago.resources.preapproval.Preapproval`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = PreApproval(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res
+
+    def preference(self, http_client=None, request_options=None) -> Preference:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.preference.Preference``
+            ``mercadopago.resources.preference.Preference`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = Preference(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res
+
+    def refund(self, http_client=None, request_options=None) -> Refund:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.refund.Refund``
+            ``mercadopago.resources.refund.Refund`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = Refund(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res
+
+    def user(self, http_client=None, request_options=None) -> User:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.user.User``
+            ``mercadopago.resources.user.User`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = User(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res
+
+    def chargeback(self, http_client=None, request_options=None) -> Chargeback:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.chargeback.Chargeback``
+            ``mercadopago.resources.chargeback.Chargeback`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = Chargeback(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res
+
+    def subscription(
+        self, http_client=None, request_options=None
+    ) -> Subscription:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.subscription.Subscription``
+            ``mercadopago.resources.subscription.Subscription`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = Subscription(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res
+
+    def plan(self, http_client=None, request_options=None) -> Plan:
+        """
+        Returns the attribute value of the function.
+
+        Parameters
+        ----------
+        http_client: ``mercadopago.http.http_client`` or ``None`` (optional)
+            An implementation of ``HttpClient`` can be pass to be used
+            to make the REST calls.
+            Defaults to None
+        request_options : ``mercadopago.config.request_options`` or ``None`` (optional)
+            An instance of ``RequestOptions`` can be pass changing or adding
+            custom options to ur REST call.
+            Defaults to None.
+
+        Return
+        ------
+        res : ``mercadopago.resources.plan.Plan``
+            ``mercadopago.resources.plan.Plan`` object.
+        """
+        _http_client = HttpClient() if http_client is None else http_client
+        _request_options = (
+            RequestOptions() if request_options is None else request_options
+        )
+        _request_options.access_token = current_app.config["APP_ACCESS_TOKEN"]
+        res = Plan(
+            request_options is not None
+            and request_options
+            or _request_options,
+            _http_client,
+        )
+        return res

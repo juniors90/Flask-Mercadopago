@@ -1,3 +1,4 @@
 -r sample_app.in
 Sphinx==4.2.0
 sphinx-tabs==3.2.0
+mercadopago==2.2.0

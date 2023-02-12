@@ -76,6 +76,7 @@ werkzeug==2.0.3
     # via
     #   -r sample_app.in
     #   flask
+mercadopago==2.2.0
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
