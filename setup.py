@@ -34,7 +34,7 @@ PATH = pathlib.Path(os.path.abspath(os.path.dirname(__file__)))
 REQUIREMENTS = [
     "Flask>=2.0.1",
     "requests>=2.28.1",
-    "Werkzeug==2.0.3",
+    "Werkzeug>=2.0.3",
     "mercadopago>=2.2.0",
 ]
 
@@ -68,7 +68,7 @@ setup(
     author="Ferreira Juan David",
     author_email="juandavid9a0@gmail.com",
     url="https://github.com/juniors90/Flask-Mercadopago",
-    packages=["flask_mercadopago"],
+    packages=["flask_mercadopago", "flask_mercadopago.static.js.mercadopago"],
     include_package_data=True,
     platforms="any",
     license="The MIT License",
