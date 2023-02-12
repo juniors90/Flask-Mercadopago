@@ -23,8 +23,10 @@ Implementation of Mercadopago API OAuth in Flask.
 
 from datetime import datetime
 
-import pytest
 from flask import current_app
+
+import pytest
+
 
 # =====================================================================
 # TESTS
@@ -44,7 +46,7 @@ class TestPayment:
         with app.app_context():
             current_app.config[
                 "APP_ACCESS_TOKEN"
-            ] = "APP_USR-558881221729581-091712-44fdc612e60e3e638775d8b4003edd51-471763966"
+            ] = "APP_USR-558881221729581-091712-44fdc612e60e3e638775d8b4003edd51-471763966"  # noqa: E501
 
         card_token_object = {
             "card_number": "4074090000000004",
@@ -63,7 +65,7 @@ class TestPayment:
             "token": card_token_created["response"]["id"],
             "installments": 1,
             "transaction_amount": 58.80,
-            "description": "Point Mini a maquininha que dá o dinheiro de suas vendas na hora",
+            "description": "Point Mini a maquininha que dá o dinheiro de suas vendas na hora",  # noqa: E501
             "payment_method_id": "visa",
             "payer": {
                 "email": "test_user_123456@testuser.com",
@@ -79,8 +81,8 @@ class TestPayment:
                     {
                         "id": "PR0001",
                         "title": "Point Mini",
-                        "description": "Producto Point para cobros con tarjetas mediante bluetooth",
-                        "picture_url": "https://http2.mlstatic.com/resources/frontend/statics/growth-sellers-landings/device-mlb-point-i_medium@2x.png",  # pylint: disable=line-too-long
+                        "description": "Producto Point para cobros con tarjetas mediante bluetooth",  # noqa: E501
+                        "picture_url": "https://http2.mlstatic.com/resources/frontend/statics/growth-sellers-landings/device-mlb-point-i_medium@2x.png",  # noqa: E501
                         "category_id": "electronics",
                         "quantity": 1,
                         "unit_price": 58.80,

@@ -24,6 +24,7 @@ Implementation of Mercadopago OAuth in Flask.
 import typing as t
 
 import flask
+
 import pytest as pt
 
 if t.TYPE_CHECKING:

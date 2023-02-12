@@ -44,7 +44,7 @@ class TestAdvancedPayment:
         with app.app_context():
             current_app.config[
                 "APP_ACCESS_TOKEN"
-            ] = "APP_USR-558881221729581-091712-44fdc612e60e3e638775d8b4003edd51-471763966"
+            ] = "APP_USR-558881221729581-091712-44fdc612e60e3e638775d8b4003edd51-471763966"  # noqa: E501
 
         card_token_object = {
             "card_number": "4074090000000004",
@@ -115,7 +115,7 @@ class TestAdvancedPayment:
                     {
                         "id": "123",
                         "title": "title",
-                        "picture_url": "https://www.mercadopago.com/logomp3.gif",
+                        "picture_url": "https://www.mercadopago.com/logomp3.gif",  # noqa: E501
                         "description": "description",
                         "category_id": "category",
                         "quantity": 1,

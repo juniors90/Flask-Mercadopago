@@ -30,8 +30,15 @@ import sys
 
 from dotenv import load_dotenv
 
-from flask import (Flask, current_app, redirect, render_template, request,
-                   session, url_for)
+from flask import (
+    Flask,
+    current_app,
+    redirect,
+    render_template,
+    request,
+    session,
+    url_for,
+)
 
 import requests
 

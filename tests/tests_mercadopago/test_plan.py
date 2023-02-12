@@ -23,8 +23,10 @@ Implementation of Mercadopago API OAuth in Flask.
 
 import random
 
-import pytest
 from flask import current_app
+
+import pytest
+
 
 # =====================================================================
 # TESTS
@@ -44,7 +46,7 @@ class TestPlan:
         with app.app_context():
             current_app.config[
                 "APP_ACCESS_TOKEN"
-            ] = "APP_USR-1148860861802028-072017-b6355e068517038cb6cb45e7eafe4ec5-1162652745"
+            ] = "APP_USR-1148860861802028-072017-b6355e068517038cb6cb45e7eafe4ec5-1162652745"  # noqa: E501
 
         random_reason_number = random.randint(100000, 999999)
 

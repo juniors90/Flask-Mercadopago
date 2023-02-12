@@ -23,8 +23,9 @@ Implementation of Mercadopago API OAuth in Flask.
 
 import uuid
 
-import pytest
 from flask import current_app
+
+import pytest
 
 # =====================================================================
 # TESTS
@@ -44,7 +45,7 @@ class TestMerchantOrder:
         with app.app_context():
             current_app.config[
                 "APP_ACCESS_TOKEN"
-            ] = "APP_USR-558881221729581-091712-44fdc612e60e3e638775d8b4003edd51-471763966"
+            ] = "APP_USR-558881221729581-091712-44fdc612e60e3e638775d8b4003edd51-471763966"  # noqa: E501
 
         preference_object = {
             "items": [

@@ -31,7 +31,12 @@ from setuptools import setup  # noqa
 PATH = pathlib.Path(os.path.abspath(os.path.dirname(__file__)))
 
 
-REQUIREMENTS = ["Flask>=2.0.1", "requests>=2.28.1", "Werkzeug==2.0.3"]
+REQUIREMENTS = [
+    "Flask>=2.0.1",
+    "requests>=2.28.1",
+    "Werkzeug==2.0.3",
+    "mercadopago>=2.2.0",
+]
 
 with open(PATH / "flask_mercadopago" / "__init__.py") as fp:
     for line in fp.readlines():

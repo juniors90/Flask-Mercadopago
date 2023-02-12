@@ -46,7 +46,7 @@ class TestCardToken:
         with app.app_context():
             current_app.config[
                 "APP_ACCESS_TOKEN"
-            ] = "APP_USR-1148860861802028-072017-b6355e068517038cb6cb45e7eafe4ec5-1162652745"
+            ] = "APP_USR-1148860861802028-072017-b6355e068517038cb6cb45e7eafe4ec5-1162652745"  # noqa: E501
 
         card_token_object = {
             "card_number": "4074090000000004",

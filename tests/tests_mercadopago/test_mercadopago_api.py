@@ -21,12 +21,13 @@ Implementation of Mercadopago API OAuth in Flask.
 # IMPORTS
 # =====================================================================
 
-
-import pytest
 from flask import current_app, redirect, request
-from markupsafe import Markup
 
 from flask_mercadopago import scripts_with_sri, simple_scripts_js
+
+from markupsafe import Markup
+
+import pytest
 
 # =====================================================================
 # TESTS
