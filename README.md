@@ -19,6 +19,7 @@ Flask-Mercadopago is a collection of methods for the implementation of Mercado P
 
 - [x] [Authentication generation](https://www.mercadopago.com.ar/developers/en/reference/oauth/_oauth_token/post).
 - [x] [Preference generation](https://www.mercadopago.com.ar/developers/en/reference/preferences/_checkout_preferences/post).
+- [x] [Checkout Pro integration](https://www.mercadopago.com.ar/developers/en/docs/checkout-pro/landing).
 
 
 ## Requirements
@@ -29,6 +30,7 @@ Python 3.8+
 
 - [Flask(>=2.0.1)](https://flask.palletsprojects.com/en/2.0.x/) for build the backend.
 - [Requests](https://requests.readthedocs.io/en/latest/) for build the backend.
+- [mercadopago](https://github.com/mercadopago/sdk-python) for build the backend.
 
 ## intallation
 
