@@ -19,7 +19,7 @@ jobs:
       # Sets up python
       - uses: actions/setup-python@v3
         with:
-          python-version: 3.x'
+          python-version: '3.x'
 
       # Install dependencies
       - name: "Installs and upgrades pip, installs other dependencies and installs the package from setup.py"
