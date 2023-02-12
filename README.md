@@ -45,14 +45,48 @@ You can install via pip:
 Register the extension:
 
 ```python
-from flask import Flask
+from datetime import datetime
+from flask import Flask, jsonify
 # To follow the naming rule of Flask extension, although
 # this project's name is Flask-Mercadopago, the actual package
 # installed is named `flask_mercadopago`.
 from flask_mercadopago import Mercadopago
 
 app = Flask(__name__)
+app.config["APP_ACCESS_TOKEN"]="APP_USR-558881221729581-091712-44fdc612e60e3e638775d8b4003edd51-471763966"
 mercadopago = Mercadopago(app)
+
+@app.route("/")
+def index():
+    card_token_object = {
+        "card_number": "4074090000000004",
+        "security_code": "123",
+        "expiration_year": datetime.now().strftime("%Y"),
+        "expiration_month": "12",
+        "cardholder": {
+            "name": "APRO",
+            "identification": {"CPF": "19119119100"},
+        },
+    }
+
+    card_token_created = mercadopago.card_token().create(card_token_object)
+
+    payment_data = {
+        "transaction_amount": 100,
+        "token": card_token_created["response"]["id"],
+        "description": "Payment description",
+        "payment_method_id": 'visa',
+        "installments": 1,
+        "payer": {
+            "email": 'test_user_123456@testuser.com'
+        }
+    }
+    result = mercadopago.payment().create(payment_data)
+    payment = result["response"]
+    return jsonify(payment) 
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5000, debug=True)
 ```
 
 ## Recommended running instructions for dev:
